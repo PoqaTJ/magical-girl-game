@@ -37,6 +37,13 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: builds/web
+      - name: Discord notification
+        if: failure()
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@master
+        with:
+          args: "❌ Build failed. Please investigate: https://github.com/PoqaTJ/magical-girl-game/actions/runs/${{github.run_id}}\nLast commit:\n${{ github.event.head_commit.message }}\n"
 
   deploy:
     name: Deploy to Github Pages
@@ -54,3 +61,10 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4   
+      - name: Discord notification
+        if: success()
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@master
+        with:
+          args: "🎀 https://hime-tan-productions.github.io/spooktober2024 has been updated!\nWhat's new: \n${{ github.event.head_commit.message }}\n"
