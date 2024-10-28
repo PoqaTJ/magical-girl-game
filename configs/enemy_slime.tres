@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="EnemyConfig" load_steps=2 format=3 uid="uid://ctoj2aesadomg"]
+
+[ext_resource type="Script" path="res://scripts/combatant/configs/enemy_config.gd" id="1_hmo63"]
+
+[resource]
+script = ExtResource("1_hmo63")
+base_health = 2
+base_speed = 50.0

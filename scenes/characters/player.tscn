@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://boucxiw7rcp52"]
+
+[ext_resource type="Script" path="res://scripts/combatant/player/player_controller.gd" id="1_1fege"]
+[ext_resource type="Resource" uid="uid://1l1iwhh5wvjs" path="res://configs/player_shooter.tres" id="2_cub8j"]
+[ext_resource type="Texture2D" uid="uid://dmfyuweebjbc7" path="res://art/characters/player_shooter.tres" id="3_6glxk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0gmkt"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_1fege")
+config = ExtResource("2_cub8j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_6glxk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.695, 2.85)
+scale = Vector2(0.54, 0.54)
+shape = SubResource("CapsuleShape2D_0gmkt")
