@@ -119,6 +119,7 @@ shape = SubResource("RectangleShape2D_dyhhk")
 [node name="Player" parent="Map" instance=ExtResource("1_eao63")]
 
 [node name="Camera2D" type="Camera2D" parent="Map/Player"]
+position = Vector2(-242, -125)
 zoom = Vector2(3, 3)
 position_smoothing_speed = 1.0
 drag_horizontal_enabled = true
