@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://boucxiw7rcp52"]
+[gd_scene load_steps=6 format=3 uid="uid://boucxiw7rcp52"]
 
 [ext_resource type="Script" path="res://scripts/combatant/player/player_controller.gd" id="1_1fege"]
 [ext_resource type="Resource" uid="uid://1l1iwhh5wvjs" path="res://configs/player_shooter.tres" id="2_cub8j"]
 [ext_resource type="Texture2D" uid="uid://dmfyuweebjbc7" path="res://art/characters/player_shooter.tres" id="3_6glxk"]
+[ext_resource type="Script" path="res://scripts/combatant/attack.gd" id="4_ocjtw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0gmkt"]
 
@@ -17,3 +18,11 @@ texture = ExtResource("3_6glxk")
 position = Vector2(3.695, 2.85)
 scale = Vector2(0.54, 0.54)
 shape = SubResource("CapsuleShape2D_0gmkt")
+
+[node name="BaseAttack" type="Node2D" parent="."]
+position = Vector2(14.455, 2.46)
+script = ExtResource("4_ocjtw")
+
+[node name="Timer" type="Timer" parent="BaseAttack"]
+wait_time = 0.001
+one_shot = true

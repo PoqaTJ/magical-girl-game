@@ -4,14 +4,21 @@ class_name Combatant
 @export var config: CombatantConfig
 
 var move_direction: Vector2
-var use_base_atack: bool
+var use_base_attack: bool
 var look_direction: Vector2
+var base_attack : Attack
+
+func _ready() -> void:
+	base_attack = $BaseAttack as Attack
+	base_attack.init(config.base_attack)
 
 func move_speed() -> float:
 	return config.base_speed
 
 func _physics_process(delta: float) -> void:
-
+	if use_base_attack:
+		base_attack.try_attack()
+	
 	# if aim direction is set, rotate to aim in that direction.
 	if look_direction.x < 0:
 		transform.x.x = -1
@@ -26,4 +33,3 @@ func _physics_process(delta: float) -> void:
 
 	velocity = speed * move_direction
 	move_and_slide()
-		
