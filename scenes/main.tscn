@@ -1,131 +1,58 @@
-[gd_scene load_steps=3 format=3 uid="uid://2c38prtyjwru"]
+[gd_scene load_steps=2 format=3 uid="uid://2c38prtyjwru"]
 
-[ext_resource type="PackedScene" uid="uid://boucxiw7rcp52" path="res://scenes/characters/player.tscn" id="1_eao63"]
+[ext_resource type="Script" path="res://scripts/menu/main_menu.gd" id="1_t274c"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyhhk"]
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t274c")
 
-[node name="Node2D" type="Node2D"]
+[node name="Title" type="Label" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -211.0
+offset_top = 46.67
+offset_right = -70.0
+offset_bottom = 69.67
+grow_horizontal = 2
+scale = Vector2(3, 3)
+text = "Magical Girl Game"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Map" type="Node2D" parent="."]
-
-[node name="Obstacle" type="StaticBody2D" parent="Map"]
-position = Vector2(-265, -5)
-scale = Vector2(1, 17.125)
-
-[node name="ColorRect" type="ColorRect" parent="Map/Obstacle"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
+offset_left = -40.5
+offset_top = -20.0
+offset_right = 40.5
+offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.529412, 1, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Obstacle"]
-shape = SubResource("RectangleShape2D_dyhhk")
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Play"
 
-[node name="Obstacle2" type="StaticBody2D" parent="Map"]
-position = Vector2(196, -5)
-scale = Vector2(1, 17.125)
+[node name="Test Area" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Test Area"
 
-[node name="ColorRect" type="ColorRect" parent="Map/Obstacle2"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0.529412, 1, 1)
+[node name="Options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Options"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Obstacle2"]
-shape = SubResource("RectangleShape2D_dyhhk")
-
-[node name="Obstacle3" type="StaticBody2D" parent="Map"]
-position = Vector2(-34, -166)
-rotation = 1.5708
-scale = Vector2(1, 24.12)
-
-[node name="ColorRect" type="ColorRect" parent="Map/Obstacle3"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0.529412, 1, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Obstacle3"]
-shape = SubResource("RectangleShape2D_dyhhk")
-
-[node name="Obstacle3" type="StaticBody2D" parent="Map/Obstacle3"]
-position = Vector2(-34, -166)
-rotation = 1.5708
-scale = Vector2(1, 24.12)
-
-[node name="ColorRect" type="ColorRect" parent="Map/Obstacle3/Obstacle3"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0.529412, 1, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Obstacle3/Obstacle3"]
-shape = SubResource("RectangleShape2D_dyhhk")
-
-[node name="Obstacle4" type="StaticBody2D" parent="Map"]
-position = Vector2(-35, 157)
-rotation = 1.5708
-scale = Vector2(1, 24.12)
-
-[node name="ColorRect" type="ColorRect" parent="Map/Obstacle4"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0.529412, 1, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Obstacle4"]
-shape = SubResource("RectangleShape2D_dyhhk")
-
-[node name="Player" parent="Map" instance=ExtResource("1_eao63")]
-
-[node name="Camera2D" type="Camera2D" parent="Map/Player"]
-zoom = Vector2(3, 3)
-position_smoothing_speed = 1.0
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_horizontal_offset = 0.8
-drag_vertical_offset = 0.8
-drag_left_margin = 0.5
-drag_top_margin = 0.5
-drag_right_margin = 0.5
-drag_bottom_margin = 0.5
+[connection signal="pressed" from="VBoxContainer/Test Area" to="." method="_on_test_area_pressed"]
