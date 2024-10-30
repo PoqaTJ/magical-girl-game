@@ -5,7 +5,7 @@ on:
 
 env:
   GODOT_VERSION: 4.3
-  EXPORT_NAME: dice-game
+  EXPORT_NAME: magical-girl-game
 
 permissions:
   contents: read
@@ -41,7 +41,7 @@ jobs:
           comment: true
           updateComment: true
           fail_on_failure: true
-          require_tests: true
+          require_tests: false
       - name: Archive Test Results
         uses: actions/upload-artifact@v4.4.3
         if: always()

@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="PlayerConfig" load_steps=2 format=3 uid="uid://1l1iwhh5wvjs"]
+[gd_resource type="Resource" script_class="PlayerConfig" load_steps=3 format=3 uid="uid://1l1iwhh5wvjs"]
 
 [ext_resource type="Script" path="res://scripts/combatant/configs/player_config.gd" id="1_fillm"]
+[ext_resource type="Resource" uid="uid://cq1vn8eto8ld4" path="res://configs/attacks/ninja_melee.tres" id="1_roqk1"]
 
 [resource]
 script = ExtResource("1_fillm")
+base_attack = ExtResource("1_roqk1")
 base_health = 3
 base_speed = 200.0
