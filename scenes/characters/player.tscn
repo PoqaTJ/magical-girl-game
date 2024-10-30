@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/combatant/player/player_controller.gd" id="1_1fege"]
 [ext_resource type="Resource" uid="uid://1l1iwhh5wvjs" path="res://configs/player_shooter.tres" id="2_cub8j"]
-[ext_resource type="Texture2D" uid="uid://dmfyuweebjbc7" path="res://art/characters/player_shooter.tres" id="3_6glxk"]
+[ext_resource type="Texture2D" uid="uid://bwy07qf0a3q85" path="res://art/characters/player_ninja.tres" id="3_xi7mw"]
 [ext_resource type="Script" path="res://scripts/combatant/attack.gd" id="4_ocjtw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0gmkt"]
@@ -12,7 +12,7 @@ script = ExtResource("1_1fege")
 config = ExtResource("2_cub8j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_6glxk")
+texture = ExtResource("3_xi7mw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3.695, 2.85)
