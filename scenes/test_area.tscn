@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://chjl6gvygol5t"]
 
-[ext_resource type="PackedScene" uid="uid://boucxiw7rcp52" path="res://scenes/characters/player.tscn" id="1_naaap"]
+[ext_resource type="PackedScene" uid="uid://wrkpceagxt" path="res://scenes/characters/player_ninja.tscn" id="1_g2wn7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dyhhk"]
 
@@ -116,16 +116,6 @@ color = Color(1, 0.529412, 1, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Obstacle4"]
 shape = SubResource("RectangleShape2D_dyhhk")
 
-[node name="Player" parent="Map" instance=ExtResource("1_naaap")]
+[node name="PlayerBase" parent="Map" instance=ExtResource("1_g2wn7")]
 
-[node name="Camera2D" type="Camera2D" parent="Map/Player"]
-zoom = Vector2(3, 3)
-position_smoothing_speed = 1.0
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_horizontal_offset = 0.8
-drag_vertical_offset = 0.8
-drag_left_margin = 0.5
-drag_top_margin = 0.5
-drag_right_margin = 0.5
-drag_bottom_margin = 0.5
+[node name="Camera2D" type="Camera2D" parent="Map/PlayerBase"]
