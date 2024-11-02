@@ -39,6 +39,7 @@ offset_right = 8.60825
 offset_bottom = 9.735
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.482353, 0, 1, 0.498039)
 
 [node name="MeleeAttackTimer" type="Timer" parent="MeleeAttackComponent" index="1"]
 one_shot = true
