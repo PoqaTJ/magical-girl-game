@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://cchax68v2sjxy"]
+
+[ext_resource type="Texture2D" uid="uid://dmfyuweebjbc7" path="res://art/characters/player_shooter.tres" id="1_5811t"]
+[ext_resource type="Script" path="res://scripts/player/PlayerController.gd" id="1_fsqi0"]
+[ext_resource type="Script" path="res://scripts/components/MoveComponent.gd" id="2_i8r3g"]
+[ext_resource type="Script" path="res://scripts/components/HealthComponent.gd" id="3_c83cc"]
+[ext_resource type="Script" path="res://scripts/components/PlayerControlsComponent.gd" id="4_bwoij"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1nuwd"]
+radius = 3.41
+height = 18.09
+
+[node name="PlayerBase" type="CharacterBody2D"]
+script = ExtResource("1_fsqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5811t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.2, 2.615)
+shape = SubResource("CapsuleShape2D_1nuwd")
+
+[node name="PlayerControlsComponent" type="Node" parent="." node_paths=PackedStringArray("body", "move")]
+script = ExtResource("4_bwoij")
+body = NodePath("..")
+move = NodePath("../MoveComponent")
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("body")]
+script = ExtResource("2_i8r3g")
+body = NodePath("..")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("3_c83cc")
