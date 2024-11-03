@@ -1,17 +1,27 @@
 extends AttackComponent
 class_name MeleeAttackComponent
 
-@export var attack_node: Node2D
-@export var melee_attack_duration: float = 0.2
+@export var hitbox: CollisionShape2D
 
-func _ready() -> void:
-	remove_child(attack_node)
-	$MeleeAttackTimer.timeout.connect(melee_end)
+# temp used until we get anims in
+var disable_next_frame: int = 0
+
+func _process(delta: float) -> void:
+	if disable_next_frame == 1:
+		hitbox.disabled = true
+		disable_next_frame = 0
+	elif disable_next_frame > 1:
+		disable_next_frame -= 1
 
 func attack() -> void:
-	add_child(attack_node)
-	$MeleeAttackTimer.start(melee_attack_duration)
+	hitbox.disabled = false
+	disable_next_frame = 10
 	super.attack()
 	
-func melee_end() -> void:
-	remove_child(attack_node)
+func attack_body(body: Node2D) -> void:
+	var health = body.find_child("HealthComponent") as HealthComponent
+	if health:
+		health.take_damage(self.damage)
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	attack_body(body)

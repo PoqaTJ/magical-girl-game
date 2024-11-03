@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://wrkpceagxt"]
+
+[ext_resource type="Texture2D" uid="uid://bwy07qf0a3q85" path="res://art/characters/player_ninja.tres" id="1_33lpi"]
+[ext_resource type="PackedScene" uid="uid://cchax68v2sjxy" path="res://scenes/characters/player/player_base.tscn" id="1_ulirv"]
+[ext_resource type="Script" path="res://scripts/components/MeleeAttackComponent.gd" id="3_mvpoj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_in8l2"]
+size = Vector2(9, 18)
+
+[node name="NinjaGirl" instance=ExtResource("1_ulirv")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("1_33lpi")
+
+[node name="PlayerControlsComponent" parent="." index="2" node_paths=PackedStringArray("baseAttack")]
+baseAttack = NodePath("../MeleeAttackComponent")
+
+[node name="MoveComponent" parent="." index="3"]
+move_speed = 200.0
+
+[node name="MeleeAttackComponent" type="Node2D" parent="." index="4" node_paths=PackedStringArray("hitbox")]
+script = ExtResource("3_mvpoj")
+hitbox = NodePath("Area2D/CollisionShape2D")
+
+[node name="Area2D" type="Area2D" parent="MeleeAttackComponent" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeAttackComponent/Area2D" index="0"]
+position = Vector2(15, 2)
+shape = SubResource("RectangleShape2D_in8l2")
+disabled = true
+debug_color = Color(0.915245, 0.234477, 0.437462, 0.42)
+
+[node name="MeleeAttackTimer" type="Timer" parent="MeleeAttackComponent" index="1"]
+one_shot = true
+
+[node name="Timer" type="Timer" parent="MeleeAttackComponent" index="2"]
+one_shot = true
+
+[connection signal="body_entered" from="MeleeAttackComponent/Area2D" to="MeleeAttackComponent" method="_on_area_2d_body_entered"]

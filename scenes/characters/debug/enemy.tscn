@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbv8ow5bndunh"]
+
+[ext_resource type="Script" path="res://scripts/components/HealthComponent.gd" id="1_q40oa"]
+[ext_resource type="Script" path="res://scripts/components/MoveComponent.gd" id="2_ydmse"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lkd22"]
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lkd22")
+
+[node name="ColorRect" type="ColorRect" parent="CollisionShape2D"]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(1, 0.211765, 0.203922, 1)
+
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("body")]
+script = ExtResource("1_q40oa")
+body = NodePath("..")
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("body")]
+script = ExtResource("2_ydmse")
+body = NodePath("..")
+move_speed = 50.0
+backward_move_multiplier = 0.8
