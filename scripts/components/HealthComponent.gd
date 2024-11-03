@@ -3,6 +3,7 @@ class_name HealthComponent
 
 @export var body: CharacterBody2D
 @export var max_hp: int = 1
+@export var collision: CollisionShape2D 
 
 var hp: int
 
@@ -20,4 +21,5 @@ func is_alive() -> bool:
 	return hp > 0
 
 func die() -> void:
-	body.queue_free()
+	if body:
+		body.queue_free()
