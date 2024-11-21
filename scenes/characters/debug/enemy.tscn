@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbv8ow5bndunh"]
+[gd_scene load_steps=6 format=3 uid="uid://dbv8ow5bndunh"]
 
+[ext_resource type="Script" path="res://scripts/enemy/TrackPlayerComponent.gd" id="1_hi0b5"]
 [ext_resource type="Script" path="res://scripts/components/HealthComponent.gd" id="1_q40oa"]
 [ext_resource type="Script" path="res://scripts/components/MoveComponent.gd" id="2_ydmse"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lkd22"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_83kfy"]
+radius = 189.003
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 4
@@ -28,3 +32,20 @@ script = ExtResource("2_ydmse")
 body = NodePath("..")
 move_speed = 50.0
 backward_move_multiplier = 0.8
+
+[node name="TrackPlayerComponent" type="Node2D" parent="." node_paths=PackedStringArray("move")]
+script = ExtResource("1_hi0b5")
+move = NodePath("../MoveComponent")
+
+[node name="Area2D" type="Area2D" parent="TrackPlayerComponent"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrackPlayerComponent/Area2D"]
+shape = SubResource("CircleShape2D_83kfy")
+one_way_collision_margin = 0.0
+debug_color = Color(0.86972, 0.264319, 0.589357, 0.42)
+
+[connection signal="body_entered" from="TrackPlayerComponent/Area2D" to="TrackPlayerComponent" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="TrackPlayerComponent/Area2D" to="TrackPlayerComponent" method="_on_area_2d_body_exited"]

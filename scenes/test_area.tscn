@@ -1,142 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://chjl6gvygol5t"]
+[gd_scene load_steps=4 format=4 uid="uid://chjl6gvygol5t"]
 
+[ext_resource type="TileSet" uid="uid://clsucwbdymwiq" path="res://art/tilesets/basic_tileset_and_assets_standard/first_map.tres" id="1_8ay77"]
 [ext_resource type="PackedScene" uid="uid://wrkpceagxt" path="res://scenes/characters/player/player_ninja.tscn" id="1_g2wn7"]
 [ext_resource type="PackedScene" uid="uid://dbv8ow5bndunh" path="res://scenes/characters/debug/enemy.tscn" id="1_lm3vu"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyhhk"]
+[node name="Map" type="Node2D"]
 
-[node name="Node2D" type="Node2D"]
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD2//n/AAAAAAAAAAAIAPn/AAACAAAAAAD2/wQAAAAAAAIAAAAIAAQAAAACAAIAAAAHAAQAAAABAAIAAAAGAAQAAAABAAIAAAAFAAQAAAABAAIAAAAEAAQAAAABAAIAAAADAAQAAAABAAIAAAACAAQAAAABAAIAAAABAAQAAAABAAIAAAAAAAQAAAABAAIAAAD//wQAAAABAAIAAAD+/wQAAAABAAIAAAD9/wQAAAABAAIAAAD8/wQAAAABAAIAAAD7/wQAAAABAAIAAAD6/wQAAAABAAIAAAD5/wQAAAABAAIAAAD4/wQAAAABAAIAAAD3/wQAAAABAAIAAAD2/wMAAAAAAAEAAAD2/wIAAAAAAAEAAAD2/wEAAAAAAAEAAAD2/wAAAAAAAAEAAAD2////AAAAAAEAAAD2//7/AAAAAAEAAAD2//3/AAAAAAEAAAD2//z/AAAAAAEAAAD2//v/AAAAAAEAAAD2//r/AAAAAAEAAAAIAAMAAAACAAEAAAAIAAIAAAACAAEAAAAIAAEAAAACAAEAAAAIAAAAAAACAAEAAAAIAP//AAACAAEAAAAIAP7/AAACAAEAAAAIAP3/AAACAAEAAAAIAPz/AAACAAEAAAAIAPv/AAACAAEAAAAIAPr/AAACAAEAAAAHAPn/AAABAAAAAAAGAPn/AAABAAAAAAAFAPn/AAABAAAAAAAEAPn/AAABAAAAAAADAPn/AAABAAAAAAACAPn/AAABAAAAAAABAPn/AAABAAAAAAAAAPn/AAABAAAAAAD///n/AAABAAAAAAD+//n/AAABAAAAAAD9//n/AAABAAAAAAD8//n/AAABAAAAAAD7//n/AAABAAAAAAD6//n/AAABAAAAAAD5//n/AAABAAAAAAD4//n/AAABAAAAAAD3//n/AAABAAAAAAD3//r/AAAFAAEAAAD4//r/AAABAAEAAAD5//r/AAAFAAEAAAD6//r/AAABAAEAAAD7//r/AAAFAAEAAAD8//r/AAABAAEAAAD9//r/AAABAAEAAAD+//r/AAAFAAEAAAD///r/AAABAAEAAAAAAPr/AAABAAEAAAABAPr/AAAFAAEAAAACAPr/AAABAAEAAAADAPr/AAAFAAEAAAAEAPr/AAAFAAEAAAAFAPr/AAABAAEAAAAGAPr/AAABAAEAAAAHAPr/AAABAAEAAAAHAPv/AAABAAEAAAAGAPv/AAABAAEAAAAFAPv/AAAFAAEAAAAEAPv/AAABAAEAAAADAPv/AAAFAAEAAAACAPv/AAAFAAEAAAABAPv/AAAFAAEAAAAAAPv/AAAFAAEAAAD///v/AAAFAAEAAAD+//v/AAABAAEAAAD9//v/AAABAAEAAAD8//v/AAAFAAEAAAD7//v/AAABAAEAAAD6//v/AAAFAAEAAAD5//v/AAABAAEAAAD4//v/AAAFAAEAAAD3//v/AAABAAEAAAD3//z/AAAFAAEAAAD3//3/AAABAAEAAAD4//3/AAAFAAEAAAD4//z/AAABAAEAAAD5//z/AAAFAAEAAAD6//z/AAABAAEAAAD7//z/AAABAAEAAAD8//z/AAABAAEAAAD9//z/AAABAAEAAAD+//z/AAABAAEAAAD///z/AAAFAAEAAAAAAPz/AAAFAAEAAAABAPz/AAAFAAEAAAACAPz/AAAFAAEAAAADAPz/AAAFAAEAAAAEAPz/AAAFAAEAAAAFAPz/AAABAAEAAAAGAPz/AAABAAEAAAAGAP3/AAAFAAEAAAAHAP3/AAABAAEAAAAHAPz/AAABAAEAAAAFAP3/AAABAAEAAAAEAP3/AAAFAAEAAAADAP3/AAAFAAEAAAACAP3/AAAFAAEAAAABAP3/AAAFAAEAAAAAAP3/AAABAAEAAAD///3/AAABAAEAAAD+//3/AAAFAAEAAAD9//3/AAABAAEAAAD8//3/AAABAAEAAAD7//3/AAAFAAEAAAD6//3/AAABAAEAAAD5//3/AAABAAEAAAD4//7/AAABAAEAAAD3//7/AAAFAAEAAAD5//7/AAAFAAEAAAD6//7/AAAFAAEAAAD7//7/AAAFAAEAAAD8//7/AAABAAEAAAD9//7/AAABAAEAAAD+//7/AAAFAAEAAAD///7/AAABAAEAAAAAAP7/AAABAAEAAAABAP7/AAAFAAEAAAACAP7/AAABAAEAAAADAP7/AAAFAAEAAAAEAP7/AAABAAEAAAAFAP7/AAAFAAEAAAAGAP7/AAABAAEAAAAHAP7/AAABAAEAAAAGAP//AAAFAAEAAAAFAP//AAABAAEAAAAEAP//AAABAAEAAAADAP//AAABAAEAAAACAP//AAABAAEAAAABAP//AAABAAEAAAAAAP//AAAFAAEAAAD/////AAAFAAEAAAD+////AAABAAEAAAD9////AAABAAEAAAD8////AAAFAAEAAAD7////AAABAAEAAAD6////AAAFAAEAAAD5////AAABAAEAAAD4////AAABAAEAAAD3////AAABAAEAAAD3/wAAAAAFAAEAAAD4/wAAAAAFAAEAAAD5/wAAAAABAAEAAAD6/wAAAAAFAAEAAAD7/wAAAAAFAAEAAAD8/wAAAAAFAAEAAAD9/wAAAAABAAEAAAD+/wAAAAAFAAEAAAD//wAAAAABAAEAAAAAAAAAAAAFAAEAAAABAAAAAAAFAAEAAAACAAAAAAAFAAEAAAADAAAAAAAFAAEAAAAEAAAAAAABAAEAAAAFAAAAAAAFAAEAAAAGAAAAAAAFAAEAAAAHAP//AAABAAEAAAAHAAAAAAAFAAEAAAAGAAEAAAAFAAEAAAAFAAEAAAAFAAEAAAAEAAEAAAABAAEAAAADAAEAAAAFAAEAAAACAAEAAAABAAEAAAABAAEAAAABAAEAAAAAAAEAAAAFAAEAAAD//wEAAAAFAAEAAAD+/wEAAAAFAAEAAAD9/wEAAAABAAEAAAD8/wEAAAAFAAEAAAD7/wEAAAAFAAEAAAD6/wEAAAABAAEAAAD5/wEAAAABAAEAAAD4/wEAAAAFAAEAAAD3/wEAAAAFAAEAAAD3/wIAAAABAAEAAAD4/wIAAAAFAAEAAAD5/wIAAAABAAEAAAD6/wIAAAAFAAEAAAD7/wIAAAAFAAEAAAD8/wIAAAAFAAEAAAD9/wIAAAAFAAEAAAD+/wIAAAABAAEAAAD//wIAAAABAAEAAAAAAAIAAAAFAAEAAAABAAIAAAAFAAEAAAAHAAEAAAAFAAEAAAAHAAIAAAABAAEAAAAGAAIAAAAFAAEAAAAFAAIAAAAFAAEAAAAEAAIAAAAFAAEAAAADAAIAAAABAAEAAAACAAIAAAAFAAEAAAAHAAMAAAABAAEAAAAGAAMAAAAFAAEAAAAFAAMAAAABAAEAAAAEAAMAAAABAAEAAAADAAMAAAAFAAEAAAACAAMAAAABAAEAAAABAAMAAAABAAEAAAAAAAMAAAAFAAEAAAD//wMAAAABAAEAAAD+/wMAAAAFAAEAAAD9/wMAAAABAAEAAAD8/wMAAAAFAAEAAAD7/wMAAAAFAAEAAAD6/wMAAAAFAAEAAAD5/wMAAAAFAAEAAAD4/wMAAAAFAAEAAAD3/wMAAAAFAAEAAAA=")
+tile_set = ExtResource("1_8ay77")
 
-[node name="Map" type="Node2D" parent="."]
-
-[node name="Obstacle" type="StaticBody2D" parent="Map"]
-position = Vector2(-265, -5)
-scale = Vector2(1, 17.125)
-
-[node name="ColorRect" type="ColorRect" parent="Map/Obstacle"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0.529412, 1, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Obstacle"]
-shape = SubResource("RectangleShape2D_dyhhk")
-
-[node name="Obstacle2" type="StaticBody2D" parent="Map"]
-position = Vector2(196, -5)
-scale = Vector2(1, 17.125)
-
-[node name="ColorRect" type="ColorRect" parent="Map/Obstacle2"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0.529412, 1, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Obstacle2"]
-shape = SubResource("RectangleShape2D_dyhhk")
-
-[node name="Obstacle3" type="StaticBody2D" parent="Map"]
-position = Vector2(-34, -166)
-rotation = 1.5708
-scale = Vector2(1, 24.12)
-
-[node name="ColorRect" type="ColorRect" parent="Map/Obstacle3"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0.529412, 1, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Obstacle3"]
-shape = SubResource("RectangleShape2D_dyhhk")
-
-[node name="Obstacle3" type="StaticBody2D" parent="Map/Obstacle3"]
-position = Vector2(-34, -166)
-rotation = 1.5708
-scale = Vector2(1, 24.12)
-
-[node name="ColorRect" type="ColorRect" parent="Map/Obstacle3/Obstacle3"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0.529412, 1, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Obstacle3/Obstacle3"]
-shape = SubResource("RectangleShape2D_dyhhk")
-
-[node name="Obstacle4" type="StaticBody2D" parent="Map"]
-position = Vector2(-35, 157)
-rotation = 1.5708
-scale = Vector2(1, 24.12)
-
-[node name="ColorRect" type="ColorRect" parent="Map/Obstacle4"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0.529412, 1, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Obstacle4"]
-shape = SubResource("RectangleShape2D_dyhhk")
-
-[node name="PlayerBase" parent="Map" instance=ExtResource("1_g2wn7")]
+[node name="PlayerOne" parent="TileMapLayer" instance=ExtResource("1_g2wn7")]
 position = Vector2(-34, -2)
 
-[node name="Camera2D" type="Camera2D" parent="Map/PlayerBase"]
+[node name="Camera2D" type="Camera2D" parent="TileMapLayer/PlayerOne"]
 zoom = Vector2(2.41, 2.41)
 
-[node name="Enemy2" parent="Map" instance=ExtResource("1_lm3vu")]
-position = Vector2(-166, -94)
+[node name="Enemy2" parent="TileMapLayer" instance=ExtResource("1_lm3vu")]
+position = Vector2(-257, -170)
 
-[node name="Enemy3" parent="Map" instance=ExtResource("1_lm3vu")]
-position = Vector2(-85, -3)
+[node name="Enemy3" parent="TileMapLayer" instance=ExtResource("1_lm3vu")]
+position = Vector2(-269, -99)
 
-[node name="Enemy4" parent="Map" instance=ExtResource("1_lm3vu")]
-position = Vector2(-154, 77)
+[node name="Enemy4" parent="TileMapLayer" instance=ExtResource("1_lm3vu")]
+position = Vector2(-276, 120)
 
-[node name="Enemy5" parent="Map" instance=ExtResource("1_lm3vu")]
-position = Vector2(58, 98)
+[node name="Enemy5" parent="TileMapLayer" instance=ExtResource("1_lm3vu")]
+position = Vector2(233, 126)
 
-[node name="Enemy6" parent="Map" instance=ExtResource("1_lm3vu")]
-position = Vector2(176, 2)
+[node name="Enemy6" parent="TileMapLayer" instance=ExtResource("1_lm3vu")]
+position = Vector2(254, 51)
 
-[node name="Enemy7" parent="Map" instance=ExtResource("1_lm3vu")]
-position = Vector2(111, -107)
+[node name="Enemy7" parent="TileMapLayer" instance=ExtResource("1_lm3vu")]
+position = Vector2(232, -188)
+
+[node name="Enemy8" parent="TileMapLayer" instance=ExtResource("1_lm3vu")]
+position = Vector2(-56, 75)
+
+[node name="Enemy9" parent="TileMapLayer" instance=ExtResource("1_lm3vu")]
+position = Vector2(37, 65)
+
+[node name="Enemy10" parent="TileMapLayer" instance=ExtResource("1_lm3vu")]
+position = Vector2(-36, -121)
