@@ -5,11 +5,11 @@ class_name PlayerControlsComponent
 @export var move: MoveComponent
 @export var base_attack: AttackComponent
 @export var special_attack: AttackComponent
+@export var device_id: int = 0
 
 func _physics_process(delta: float) -> void:
-	var look_direction: Vector2 = body.get_global_mouse_position() - body.position
-	move.look_direction = look_direction
-	move.move_direction = Input.get_vector("left", "right", "up", "down")
-	base_attack.try_attack = Input.is_action_pressed("base_attack")
-	special_attack.try_attack = Input.is_action_pressed("special_attack")
-	special_attack.look_direction = look_direction
+	move.look_direction = MultiplayerInput.get_vector(device_id, "aim_left", "aim_right", "aim_up", "aim_down")
+	move.move_direction = MultiplayerInput.get_vector(device_id, "left", "right", "up", "down")
+	base_attack.try_attack = MultiplayerInput.is_action_pressed(device_id, "base_attack")
+	special_attack.try_attack = MultiplayerInput.is_action_pressed(device_id, "special_attack")
+	special_attack.look_direction = move.look_direction
