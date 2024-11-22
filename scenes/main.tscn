@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://2c38prtyjwru"]
+[gd_scene load_steps=3 format=3 uid="uid://2c38prtyjwru"]
 
 [ext_resource type="Script" path="res://scripts/menu/main_menu.gd" id="1_t274c"]
+[ext_resource type="Texture2D" uid="uid://b6gveir7l1jxa" path="res://art/mockups/splash.webp" id="2_swq47"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -27,6 +28,11 @@ text = "Magical Girl Game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(798, 442)
+scale = Vector2(0.640625, 0.640625)
+texture = ExtResource("2_swq47")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -34,10 +40,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -40.5
-offset_top = -20.0
-offset_right = 40.5
-offset_bottom = 180.0
+offset_left = -50.0
+offset_top = 173.0
+offset_right = 31.0
+offset_bottom = 373.0
 grow_horizontal = 2
 grow_vertical = 2
 

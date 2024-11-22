@@ -6,7 +6,7 @@
 size = Vector2(5, 5)
 
 [node name="ProjectileController" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 5
 script = ExtResource("1_q2evt")
 
